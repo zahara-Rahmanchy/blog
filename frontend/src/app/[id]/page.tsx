@@ -1,10 +1,10 @@
 import { fetchPostById } from "@/actions/api";
+// import type { PageProps } from "next";
+// interface Props {
+//   params: { id: string };
+// }
 
-interface Props {
-  params: { id: string };
-}
-
-export default async function PostDetail({ params }: Props) {
+export default async function PostDetail({ params }: { params: { id: string } }) {
   let post;
   const { id } = params;
   console.log("paa: ",params)
