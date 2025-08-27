@@ -1,12 +1,12 @@
 import { fetchPostById } from "@/actions/api";
 // import type { PageProps } from "next";
-// interface Props {
-//   params: { id: string };
-// }
+interface Props {
+  params: Promise<{ id: string }>;
+}
 
-export default async function PostDetail({ params }: { params: { id: string } }) {
+const PostDetail=async({ params }:Props)=> {
   let post;
-  const { id } = params;
+  const  id  = (await params).id;
   console.log("paa: ",params)
   try {
     post = await fetchPostById(id);
@@ -39,3 +39,5 @@ export default async function PostDetail({ params }: { params: { id: string } })
     </div>
   );
 }
+
+export default PostDetail
