@@ -1,5 +1,7 @@
 export const fetchPosts = async()=> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`, {
+    cache: "no-store"
+  });
   const result = await res.json();
   return result.data
 }
